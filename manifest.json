@@ -1,0 +1,24 @@
+{
+  "name": "text-adjuster",
+  "version": "0.1",
+  "description": "text-adjuster..",
+  "permissions": [
+    "activeTab",
+    "*://*.classmarker.com/*",
+    "tabs",
+    "webNavigation"
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.classmarker.com/*"],
+      "js": ["cbl.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+}
