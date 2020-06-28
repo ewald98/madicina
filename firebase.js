@@ -23,9 +23,9 @@ var db = firebase.firestore();
 chrome.runtime.onMessage.addListener(
         function(request, sender, sendResponse) {
 
-                if (request.type == "questionSwitch") {
+                if (request.type === "questionSwitch") {
                         // chrome.tabs.executeScript(null,{file:"cbl.js", runAt:"document_end"});
-                } else if (request.type == "questionInfo") {
+                } else if (request.type === "questionInfo") {
                         console.log(request.info.questionText);
 
                         // search for question in db
@@ -70,7 +70,7 @@ chrome.runtime.onMessage.addListener(
 
                                         }
                                 });
-                } else if (request.type == "questionAnswers") {
+                } else if (request.type === "questionAnswers") {
                         const increment = firebase.firestore.FieldValue.increment(1);
                         const decrement = firebase.firestore.FieldValue.increment(-1);
 

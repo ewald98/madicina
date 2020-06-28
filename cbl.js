@@ -1,10 +1,9 @@
 // console.log("merge")
 function pollDOM () {
-  var el = document.querySelectorAll('label');
+    var el = document.querySelectorAll('label');
 
-  console.log("compared" + el[0] + " with " + labels[0]);
-  if (!(el[0].textContent === labels[0].textContent)) {
-    // Do something with el
+    console.log("compared" + el[0] + " with " + labels[0]);
+    if (!(el[0].textContent === labels[0].textContent)) {
         chrome.runtime.sendMessage({
                 type: "questionSwitch",
         },
@@ -13,9 +12,9 @@ function pollDOM () {
                         console.log(response.farewell);
                 }
         });
-  } else {
-    setTimeout(pollDOM, 300); // try again in 300 milliseconds
-  }
+    } else {
+    setTimeout(pollDOM, 2000);
+    }
 }
 
 function sleep(milliseconds) {
