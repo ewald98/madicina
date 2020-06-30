@@ -77,11 +77,17 @@ var cboxes = document.querySelectorAll('input[type="checkbox"]')
 document.getElementById("qnext")
 var nxt = document.getElementById("qnext")
 function submitf() {
-        console.log("submit button pressee");
+        console.log("submit button pressed");
+        labels = document.querySelectorAll('label')
         chrome.runtime.sendMessage({
                 type: "questionAnswers",
                 info: {
                         questionText: questionText,
+                        aText: labels[0].textContent,
+                        bText: labels[1].textContent,
+                        cText: labels[2].textContent,
+                        dText: labels[3].textContent,
+                        eText: labels[4].textContent,
                         a: cboxes[0].checked,
                         b: cboxes[1].checked,
                         c: cboxes[2].checked,

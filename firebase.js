@@ -75,21 +75,45 @@ chrome.runtime.onMessage.addListener(
                         const decrement = firebase.firestore.FieldValue.increment(-1);
 
                         var doc = db.collection(COLLECTION_NAME).doc(request.info.questionText)
-                        if (request.info.a) {
-                                doc.update({Aa: increment});
-                        }
-                        if (request.info.b) {
-                                doc.update({Ba: increment});
-                        }
-                        if (request.info.c) {
-                                doc.update({Ca: increment});
-                        }
-                        if (request.info.d) {
-                                doc.update({Da: increment});
-                        }
-                        if (request.info.e) {
-                                doc.update({Ea: increment});
-                        }
+
+                        doc.get().then(function(querySnapshot) {
+                                var datum = querySnapshot.data();
+                                if ((datum.A === request.info.aText && request.info.a) ||
+                                    (datum.A === request.info.bText && request.info.b) ||
+                                    (datum.A === request.info.cText && request.info.c) ||
+                                    (datum.A === request.info.dText && request.info.d) ||
+                                    (datum.A === request.info.eText && request.info.e)) {
+                                        doc.update({Aa: increment});
+                                }
+                                if ((datum.B === request.info.aText && request.info.a) ||
+                                    (datum.B === request.info.bText && request.info.b) ||
+                                    (datum.B === request.info.cText && request.info.c) ||
+                                    (datum.B === request.info.dText && request.info.d) ||
+                                    (datum.B === request.info.eText && request.info.e)) {
+                                        doc.update({Ba: increment});
+                                }
+                                if ((datum.C === request.info.aText && request.info.a) ||
+                                    (datum.C === request.info.bText && request.info.b) ||
+                                    (datum.C === request.info.cText && request.info.c) ||
+                                    (datum.C === request.info.dText && request.info.d) ||
+                                    (datum.C === request.info.eText && request.info.e)) {
+                                        doc.update({Ca: increment});
+                                }
+                                if ((datum.D === request.info.aText && request.info.a) ||
+                                    (datum.D === request.info.bText && request.info.b) ||
+                                    (datum.D === request.info.cText && request.info.c) ||
+                                    (datum.D === request.info.dText && request.info.d) ||
+                                    (datum.D === request.info.eText && request.info.e)) {
+                                        doc.update({Da: increment});
+                                }
+                                if ((datum.E === request.info.aText && request.info.a) ||
+                                    (datum.E === request.info.bText && request.info.b) ||
+                                    (datum.E === request.info.cText && request.info.c) ||
+                                    (datum.E === request.info.dText && request.info.d) ||
+                                    (datum.E === request.info.eText && request.info.e)) {
+                                        doc.update({Ea: increment});
+                                }
+                        });
                         console.log("Answers saved:");
                         console.log(request.info.a);
                         console.log(request.info.b);
