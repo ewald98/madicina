@@ -11,7 +11,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const COLLECTION_NAME = "questions_etica";
+const COLLECTION_NAME = "questions_semio";
 
 
 // var worker = new Worker('background2.js');
